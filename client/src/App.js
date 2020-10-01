@@ -1,8 +1,11 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import MovieCard from "./Movies/MovieCard"
+import MovieList from "./Movies/MovieList"
 
 import SavedList from './Movies/SavedList';
+import { Router } from 'express';
 
 const App = () => {
   const [saved, setSaved] = useState([]); // Stretch: the ids of "saved" movies
@@ -27,10 +30,18 @@ const App = () => {
   };
 
   return (
+
+
     <div>
-      <SavedList list={[ /* This is stretch */]} />
-      <div>Replace this Div with your Routes</div>
+    <div>
+      <switch>
+        <Router path="/movies/:id" component={MovieCard} />
+        <Router path="/">
+          <MovieList movies={movieList} />
+        </Router>
+      </switch> 
     </div>
+  </div>
   );
 };
 

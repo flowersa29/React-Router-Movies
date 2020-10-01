@@ -1,10 +1,15 @@
 import React from 'react';
+import MovieCard from "./MovieCard"
+import {Link} from "react-router-dom"
+
 
 const MovieList = props => {
   return (
     <div className="movie-list">
       {props.movies.map(movie => (
+      <Link key={movie.id} to={`/movie/${movie.id}`}>
         <MovieDetails key={movie.id} movie={movie} />
+      </Link>
       ))}
     </div>
   );
