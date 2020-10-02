@@ -13,7 +13,7 @@ if (props.movie) id = props.movie.id;
 useEffect(()=>{
 
   axios
-    .get(`http://localhost:5000/api/movies/${id}`)
+    .get(`http://localhost:3000/api/movies/${id}`)
     .then((response)=>{
       setMovie(response.data)
     })
